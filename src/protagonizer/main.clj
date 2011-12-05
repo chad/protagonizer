@@ -8,7 +8,7 @@
             [protagonizer.web.views.layout :as layout]))
 
 (defroutes routes
-  protagonizer.controllers.people/routes
+  protagonizer.web.controllers.people/main-routes
   (route/resources "/")
   (route/not-found (layout/four-oh-four)))
 

@@ -9,24 +9,22 @@
 
 (defmulti parse-content :tag)
 (defmethod parse-content :published [element]
-  {:tag :id :content (:content element)}
-  )
+  ; parse the date
+  {:published (:content element)})
 (defmethod parse-content :link [element]
-  {:tag :id :content (:content element)}
-  )
+  {:link (:content element)})
 (defmethod parse-content :title [element]
-  {:tag :id :content (:content element)}
-  )
+  {:title (:content element)})
+(defmethod parse-content :content [element]
+  {:content (:content element)})
 (defmethod parse-content :id [element]
-  {:tag :id :content (:content element)}
-  )
+  {:id (:content element)})
 (defmethod parse-content :default [element]
-  {:tag "lol" :content (:content element)}
+  nil
   )
 
 (defn parse-entry [element]
-  (map parse-content element)
-  )
+  (apply merge {} (remove nil? (map parse-content element))))
 
 (defn parse [user]
   (parser/parse (url-for-user user)))

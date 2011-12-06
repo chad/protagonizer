@@ -4,6 +4,7 @@
                  [compojure "0.6.4"]
                  [clj-http "0.1.3"]
                  [mysql/mysql-connector-java "5.1.6"]
+                 [clj-time "0.3.3"]
                  [hiccup "0.3.7"]]
             :dev-dependencies [[lein-ring "0.4.5"]]
               :ring {:handler protagonizer.web/app}

@@ -1,7 +1,6 @@
 (ns protagonizer.github
   (:require [clojure.xml :as parser]
        [clj-http.client :as client]))
-;(def root-github-url "http://svn.livingsocial.com")
 (def root-github-url "https://github.com")
 
 (defn url-for-user [user]

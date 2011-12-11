@@ -9,7 +9,7 @@
   (str root-github-url "/" user ".atom"))
 
 (defn parse-date [element, name]
-  (let [formatter (time-format/formatters :date-time-noms)
+  (let [formatter (time-format/formatters :date-time-no-ms)
         date (time-format/parse formatter (first (seq (:content element))))]
                                 {name date}))
 
